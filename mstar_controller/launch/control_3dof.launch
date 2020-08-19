@@ -1,0 +1,30 @@
+<launch>
+
+    <!-- Spacecraft Name -->
+    <arg name="spacecraft_name" default="sc1"/> 
+    
+    <!-- Parameters for Control -->
+    <param name="kp_po" type="double" value="2.0" />
+    <param name="kd_po" type="double" value="1.0" />
+
+    <param name="kp_at" type="double" value="2.0" />
+    <param name="kd_at" type="double" value="1.0" />
+
+    <param name="attitude_control_frequency" type="double" value="2.0" />
+    <param name="position_control_frequency" type="double" value="1.0" />
+
+    <param name="min_impulse_bit" type="double" value="0.02" />
+
+    <param name="mass" type="double" value="10" />
+    <param name="inertia" type="double" value="0.4" />
+    <param name="moment_arm" type="double" value="0.2" />
+
+
+    <!-- Control Node -->
+    <node name="control_node_$(arg spacecraft_name)" pkg="mstar_controller" type="control_main.py" args="$(arg spacecraft_name)"></node>
+
+    <!-- Bag Data -->
+
+
+
+</launch>
