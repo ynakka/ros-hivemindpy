@@ -3,7 +3,7 @@
     <!-- Spacecraft Name -->
     <arg name="spacecraft_name" default="sc1"/> 
     
-    <!-- Parameters for Control -->
+    <!-- Parameters for Control
     <param name="kp_po" type="double" value="2.0" />
     <param name="kd_po" type="double" value="1.0" />
 
@@ -17,7 +17,7 @@
 
     <param name="mass" type="double" value="10" />
     <param name="inertia" type="double" value="0.4" />
-    <param name="moment_arm" type="double" value="0.2" />
+    <param name="moment_arm" type="double" value="0.2" /> -->
 
 
     <!-- Control Node -->

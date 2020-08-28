@@ -23,15 +23,7 @@ class control_talker:
 
 	def __init__(self,gain_position,gain_attitude,system_param,thruster_param,control_param,spacecraft_name):
 
-		# dummy variables 
-
-		self.state_old = np.zeros(6)
-		self.state = np.zeros(6)
-
-		self.control_old = np.zeros(8)
-		self.control = np.zeros(8)
-
-
+		# system parameters
 		self.system_param = system_param
 
 		self.gain_position = control_param['gain_position']
@@ -42,25 +34,53 @@ class control_talker:
 		self.attitude_control_frequency = control_param['attitude_control_frequency']
 		self.position_control_frequency = control_param['position_control_frequency']
 
+		# dummy variables 
+		self.state_old = np.zeros(6)
+		self.state = np.zeros(6)
+
+		self.control_old = np.zeros(8)
+		self.control = np.zeros(8)
+
+		# messages 
+
 		self.thruster = Thrusters8()
+		self.control_guidance = Thrusters8()
+
+		self.state_guidance = State6()
+		self.state_navigation = State6()
+
+		
 
 		
 		return 
 
-	def state_call_back(self,):
+	def guidance_call_back(self):
+
+
+
+
+
+		return
+
+	
+
+	def state_nav_call_back(self,state_current,state_current_old,state_desired,state_desired_old,\
+		alpha_position,alpha_attitude,system_param,attitude_control_frequency,position_control_frequency,\
+		max_impulse_bit, min_impulse_bit, thrust_max, thrust_min):
+
+		
 
 
 		return 
-
 	def update_thruster_times(self,thruster_times_ms):
-		self.thruster.FXmMZm = F[0]
-        self.thruster.FXmMZp = F[1]
-        self.thruster.FYmMZm = F[2]
-        self.thruster.FYmMZp = F[3]
-        self.thruster.FXpMZm = F[4]
-        self.thruster.FXpMZp = F[5]
-        self.thruster.FYpMZm = F[6]
-        self.thruster.FYpMZp = F[7]
+		self.thruster.FXmMZm = thruster_times_ms[0]
+		self.thruster.FXmMZp = thruster_times_ms[1]
+		self.thruster.FYmMZm = thruster_times_ms[2]
+		self.thruster.FYmMZp = thruster_times_ms[3]
+		self.thruster.FXpMZm = thruster_times_ms[4]
+		self.thruster.FXpMZp = thruster_times_ms[5]
+		self.thruster.FYpMZm = thruster_times_ms[6]
+		self.thruster.FYpMZp = thruster_times_ms[7]
 
 
 
