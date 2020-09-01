@@ -1,0 +1,8 @@
+<launch>
+
+    <!-- Spacecraft Name -->
+    <arg name="spacecraft_name"/> 
+    <!-- Control Node -->
+    <node name="control_node_$(arg spacecraft_name)" pkg="mstar_controller" type="control_main.py" args="$(arg spacecraft_name)"></node>
+    <!-- Bag Data -->
+</launch>
